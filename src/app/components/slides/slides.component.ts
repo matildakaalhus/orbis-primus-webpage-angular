@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-slides',
   templateUrl: './slides.component.html',
   styleUrls: ['./slides.component.css']
 })
-export class SlidesComponent implements OnInit {
+export class SlidesComponent implements OnInit, OnDestroy {
 
   slideTimer;
   slideIndex = 0;
@@ -18,12 +18,14 @@ export class SlidesComponent implements OnInit {
     this.runSlides();
   }
 
+  ngOnDestroy() {
+    clearTimeout(this.slideTimer);
+  }
+
   /* Automatic slideshow */
   runSlides() {
-    if (this.automaticSlideshow) {
-      this.showSlide(this.slideIndex += 1);
-      this.restartSlideTimer();
-    }
+    this.showSlide(this.slideIndex += 1);
+    this.restartSlideTimer();
   }
 
   /**
@@ -37,24 +39,22 @@ export class SlidesComponent implements OnInit {
 
   /* Pause automatic slideshow */
   pauseSlides() {
-      this.automaticSlideshow = false;
-      clearTimeout(this.slideTimer);
+    clearTimeout(this.slideTimer);
 
-      const pauseButton = document.getElementById('pauseButton');
-      pauseButton.style.display = 'none';
-      const playButton = document.getElementById('playButton');
-      playButton.style.display = 'block';
+    const pauseButton = document.getElementById('pauseButton');
+    pauseButton.setAttribute('style', 'display:none;');
+    const playButton = document.getElementById('playButton');
+    playButton.setAttribute('style', 'display:block;');
   }
 
   /* Play automatic slideshow */
   playSlides() {
-      this.automaticSlideshow = true;
-      this.restartSlideTimer();
+    this.restartSlideTimer();
 
-      const playButton = document.getElementById('playButton');
-      playButton.style.display = 'none';
-      const pauseButton = document.getElementById('pauseButton');
-      pauseButton.style.display = 'block';
+    const playButton = document.getElementById('playButton');
+    playButton.setAttribute('style', 'display:none;');
+    const pauseButton = document.getElementById('pauseButton');
+    pauseButton.setAttribute('style', 'display:block;');
   }
 
   /* Change to a slide relative to current by n */
