@@ -8,5 +8,9 @@
 }
 
 body {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+}
+
+html, body {
+    min-height: 100vh;
 }

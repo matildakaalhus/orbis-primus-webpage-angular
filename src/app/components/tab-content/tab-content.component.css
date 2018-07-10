@@ -1,0 +1,33 @@
+/* Styles for tab labels */
+.mat-tab-header {
+    background-color: rgba(105, 8, 8, 0.849);
+}
+
+.mat-tab-label.mat-tab-label-active {
+    font-weight: bold;
+    background-color: rgba(156, 33, 33, 0.685);
+}
+
+.mat-tab-labels {
+    justify-content: center;
+}
+
+.mat-ink-bar {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.mat-tab-body-wrapper {
+    flex-grow: 1 !important;
+    
+    background-color: rgb(230, 159, 159);
+}
+
+.mat-tab-group {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}

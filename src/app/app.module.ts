@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SlidesComponent } from './components/slides/slides.component';
-import { TopNavigationBarComponent } from './components/top-navigation-bar/top-navigation-bar.component';
+import { TabContentComponent } from './components/tab-content/tab-content.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatAutocompleteModule,
@@ -42,19 +43,30 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { StartTabComponent } from './components/start-tab/start-tab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlidesComponent,
-    TopNavigationBarComponent
+    TabContentComponent,
+    StartTabComponent,
   ],
   imports: [
     BrowserModule,
     MatToolbarModule,
-    MatButtonModule
+    MatTabsModule,
+    MatButtonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
