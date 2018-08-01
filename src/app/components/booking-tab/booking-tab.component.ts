@@ -6,7 +6,7 @@ import { UtilitiesService } from '../../services/utilities.service';
   selector: 'app-booking-tab',
   templateUrl: './booking-tab.component.html',
   styleUrls: ['./booking-tab.component.css'],
-  // encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class BookingTabComponent implements OnInit {
 
