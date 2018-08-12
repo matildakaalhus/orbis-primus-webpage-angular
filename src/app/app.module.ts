@@ -42,10 +42,16 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
+  MatFormFieldModule,
+  MatIcon,
 } from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StartTabComponent } from './components/start-tab/start-tab.component';
+import { BookingTabComponent } from './components/booking-tab/booking-tab.component';
+import { ContactTabComponent } from './components/contact-tab/contact-tab.component';
+import { AboutTabComponent } from './components/about-tab/about-tab.component';
+import { DateValidatorDirective } from './directives/date.directive';
 
 @NgModule({
   declarations: [
@@ -53,11 +59,19 @@ import { StartTabComponent } from './components/start-tab/start-tab.component';
     SlidesComponent,
     TabContentComponent,
     StartTabComponent,
+    BookingTabComponent,
+    ContactTabComponent,
+    AboutTabComponent,
+    DateValidatorDirective,
   ],
   imports: [
     BrowserModule,
     MatToolbarModule,
+    MatInputModule,
     MatTabsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatIconModule,
     MatButtonModule,
     BrowserModule,
     BrowserAnimationsModule,

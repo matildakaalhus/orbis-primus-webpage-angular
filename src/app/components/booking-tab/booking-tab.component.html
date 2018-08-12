@@ -1,0 +1,117 @@
+<div class="tab-content">
+  <form #bookingForm="ngForm" (ngSubmit)="submit()" class="booking-form">
+    <!-- Event description -->
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="booking-form-field">
+          <!--Input-->
+          <input matInput id="eventDescriptionInput" name="eventDescriptionInput"
+          [(ngModel)]="eventDescriptionInput" maxlength="32" placeholder="Evenemangsbeskrivning"
+            [formControl]="eventDescriptionControl" required>
+          <!--Check and clear-->
+          <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <mat-icon [style.color]="'green'" *ngIf="isValidEventDescription()">done</mat-icon>
+          </button>
+          <button mat-button class="size-medium" *ngIf="eventDescriptionInput" matSuffix
+          mat-icon-button aria-label="Clear" (click)="eventDescriptionInput = ''"
+            tabindex="-1">
+            <mat-icon>close</mat-icon>
+          </button>
+          <!--Error-->
+          <mat-error *ngIf="eventDescriptionControl.hasError('required')">
+            Ange en evenemangsbeskrivning</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="booking-form-field">
+          <!--Input-->
+          <input matInput name="locationInput" [(ngModel)]="locationInput" maxlength="32"
+          placeholder="Plats" [formControl]="locationControl"
+            required>
+          <!--Check and clear-->
+          <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <mat-icon [style.color]="'green'" *ngIf="isValidLocation()">done</mat-icon>
+          </button>
+          <button mat-button class="size-medium" *ngIf="locationInput" matSuffix
+          mat-icon-button aria-label="Clear" (click)="locationInput = ''"
+            tabindex="-1">
+            <mat-icon>close</mat-icon>
+          </button>
+          <!--Error-->
+          <mat-error *ngIf="locationControl.hasError('required')">
+            Ange en plats
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Date and time -->
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="booking-form-field">
+          <!--Input-->
+          <input matInput id="dateInput" name="dateInput"
+          [(ngModel)]="dateInput" placeholder="Datum"
+            [style.color]="isValidDate() ? 'rgb(104, 9, 9)' : 'gray'" maxlength="10"
+            (input)="setDateToDatePicker();"
+            [formControl]="dateControl" appDate required>
+          <!--Check and clear-->
+          <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <mat-icon [style.color]="'green'" *ngIf="isValidDate()">done</mat-icon>
+          </button>
+          <button mat-button class="size-medium" *ngIf="dateInput" matSuffix
+          mat-icon-button aria-label="Clear" (click)="dateInput = ''"
+            tabindex="-1">
+            <mat-icon>close</mat-icon>
+          </button>
+          <button type="button" mat-button class="size-medium" mat-icon-button matSuffix
+          (click)="picker.open()" tabindex="-1">
+            <mat-icon>date_range</mat-icon>
+          </button>
+          <!--DatePicker-->
+          <mat-datepicker #picker></mat-datepicker>
+          <!--Hidden input connected to the date picker-->
+          <input id="datepickerInput" name="datepickerInput"
+          [(ngModel)]="datepickerInput"
+            [matDatepicker]="picker" (dateInput)="setDateFromDatepicker($event);"
+            type="hidden">
+          <!--Errors-->
+          <mat-error *ngIf="dateControl.hasError('required')">
+            Ange ett datum
+          </mat-error>
+          <mat-error *ngIf="!dateControl.hasError('required') &&
+                            dateControl.hasError('dateFormat')">
+            Ogiltigt datumformat
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Time -->
+      <div class="col-12">
+        <!-- TODO: TIME SELECT HERE -->
+      </div>
+    </div>
+
+    <!-- Other information -->
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="booking-form-field">
+          <textarea matInput name="otherInput" [(ngModel)]="otherInput"
+          maxlength="200" placeholder="Övrig information" matTextareaAutosize
+            matAutosizeMaxRows="5">
+          </textarea>
+          <button mat-button class="size-medium textarea-button" *ngIf="otherInput"
+          matSuffix mat-icon-button aria-label="Clear"
+            (click)="otherInput = ''" tabindex="-1">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka förfrågan!</button>
+  </form>
+</div>
