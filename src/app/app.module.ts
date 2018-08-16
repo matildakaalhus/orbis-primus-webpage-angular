@@ -52,6 +52,7 @@ import { BookingTabComponent } from './components/booking-tab/booking-tab.compon
 import { ContactTabComponent } from './components/contact-tab/contact-tab.component';
 import { AboutTabComponent } from './components/about-tab/about-tab.component';
 import { DateValidatorDirective } from './directives/date.directive';
+import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { DateValidatorDirective } from './directives/date.directive';
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

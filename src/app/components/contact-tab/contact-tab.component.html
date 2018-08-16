@@ -1,3 +1,5 @@
-<p>
-  contact-tab works!
-</p>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit();">
+  <input type="email" name="email" placeholder="Your email">
+  <textarea name="message" placeholder="Your message"></textarea>
+  <button type="submit">Send</button>
+</form>
