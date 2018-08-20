@@ -1,6 +1,29 @@
-/* Styles for tab labels */
 .mat-tab-header {
-    background-color: rgba(105, 8, 8, 0.849);
+    background-color: rgba(105, 8, 8, 0.95);
+    position: sticky !important;
+    position: -webkit-sticky !important; /* For macOS/iOS Safari */
+    top: 0 !important; /* Sets the sticky toolbar to be on top */
+    z-index: 999 !important;
+    min-width: 500px !important;
+}
+
+.socials {
+    margin-bottom: -49px;
+    text-align: right !important;
+    position: sticky !important;
+    position: -webkit-sticky !important; /* For macOS/iOS Safari */
+    top: 0 !important; /* Sets the sticky toolbar to be on top */
+    z-index: 1000 !important;
+    vertical-align: middle !important;
+    pointer-events: none !important;
+}
+
+.social {
+    margin-top: 2px !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+    display: inline-block !important;
+    pointer-events: all !important;
 }
 
 .mat-tab-label {
@@ -9,7 +32,7 @@
 
 .mat-tab-label.mat-tab-label-active {
     font-weight: bold;
-    background-color: rgba(156, 33, 33, 0.685);
+    background-color: rgba(156, 33, 33, 0.95);
     color: white;
 }
 
@@ -23,13 +46,16 @@
 
 .mat-tab-body-wrapper {
     flex-grow: 1 !important;
-    background-color: rgb(245, 228, 228);
+    background-color: rgb(245, 228, 228); /* Tabs background color */
 }
 
 .mat-tab-group {
     min-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
+}
+
+.mat-tab-label-content, .socials {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer */
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
@@ -48,26 +74,21 @@
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid rgb(104, 9, 9);
-    margin: 35px 15%;
+    border-top: 1px solid rgba(104, 9, 9, 0.3);
+    margin: 35px 25%;
     padding: 0;
+}
+
+.tab-content h2 {
+    text-align:center;
+    color:rgb(104, 9, 9);
+    margin-left:25%;
+    margin-right:25%;
+    font-family:"Palantinos", Verdana, sans-serif;
 }
 
 .tab-content {
     margin-top: 30px;
     width: 100% !important;
     text-align: center !important;
-}
-
-
-.facebookButton {
-    cursor:pointer;
-    border:0;
-    width:60px;
-    height:60px;
-    background:url(/assets/facebookButton.png) center no-repeat;
-    background-size:60px;
-    position:relative;
-    display:inline-block;
-    transform: translate(0%, -30%);
 }

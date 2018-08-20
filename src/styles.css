@@ -14,3 +14,67 @@ body {
 html, body {
     min-height: 100vh;
 }
+
+/* Form CSS */
+.form {
+    display: inline;
+    min-width: 350px;
+} 
+
+.form-field {
+    margin-top: 13px !important;
+    min-width: 440px;
+    width: 80% !important;
+    color:rgb(104, 9, 9);
+    font-family:"Palantinos", Verdana, sans-serif;
+}
+
+.mat-card {
+    min-width: 500px;
+    width: 40% !important;
+    display: inline-block !important;
+}
+
+.mat-form-field-underline {
+    background-color: rgb(155, 37, 37) !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: rgb(155, 37, 37) !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background-color: #f44336 !important;
+}
+
+.mat-error {
+    padding-top: 2px;
+    font-size: 13px !important;
+}
+
+.mat-form-field-label {
+    padding-top: 4px;
+    font-size: 15px !important;
+}
+
+.mat-form-field-label, .mat-form-field-required-marker {
+    color: rgb(155, 37, 37) !important;
+    text-align: left;
+}
+
+.mat-form-field-infix, .mat-error {
+    text-align: left !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label, .mat-form-field-required-marker {
+    color: #f44336 !important;
+}
+
+.mat-calendar-body-cell-content.mat-calendar-body-selected {
+    background-color: rgb(155, 37, 37) !important;
+}
+
+.submit-button {
+    margin-top: 25px !important;
+    background-color: rgb(155, 37, 37) !important;
+}
