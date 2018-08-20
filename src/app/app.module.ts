@@ -81,6 +81,7 @@ import { Http, ConnectionBackend, HttpModule } from '@angular/http';
     MatNativeDateModule,
     ReactiveFormsModule,
     HttpModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

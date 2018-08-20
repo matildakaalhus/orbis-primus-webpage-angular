@@ -28,7 +28,6 @@ export class BookingTabComponent implements OnInit {
   otherControl = new FormControl();
   dateControl = new FormControl('', Validators.required);
   datePickerControl = new FormControl();
-  timeControl = new FormControl('', Validators.required);
 
   constructor(private utilitiesService: UtilitiesService, private http: Http) { }
 
@@ -37,13 +36,10 @@ export class BookingTabComponent implements OnInit {
 
   onSubmit() {
     if (this.isValidInput()) {
-      console.log("send");
-      console.log(`eventDescription=${ this.eventDescriptionInput }&location=${ this.locationInput }&eventDate=${ this.dateInput }
-      &contactName=${ this.nameContactPersonInput }&contactEmail=${ this.emailContactPersonInput }&otherInfo=${ this.otherInput }`)
-
       const headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-      return this.http.post("http://orbisprimus.se/BookingMailHandler.php",
+
+      return this.http.post('http://orbisprimus.se/BookingMailHandler.php',
       `eventDescription=${ this.eventDescriptionInput }&location=${ this.locationInput }&eventDate=${ this.dateInput }
       &contactName=${ this.nameContactPersonInput }&contactEmail=${ this.emailContactPersonInput }&otherInfo=${ this.otherInput }`,
         { headers: headers })
@@ -114,6 +110,6 @@ export class BookingTabComponent implements OnInit {
       this.isValidDate() &&
       this.isValidNameContactPerson() &&
       this.isValidEmailContactPerson()
-    )
+    );
   }
 }
