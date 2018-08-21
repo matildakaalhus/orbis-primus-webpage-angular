@@ -25,7 +25,7 @@
             </button>
             <!--Error-->
             <mat-error *ngIf="eventDescriptionControl.hasError('required')">
-              Vad handlar det om för tillställning?</mat-error>
+              Vad ger vi oss in på?</mat-error>
           </mat-form-field>
         </div>
       </div>
@@ -70,7 +70,7 @@
               <mat-icon [style.color]="'green'" *ngIf="isValidDate()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="dateInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="dateInput = ''"
+            mat-icon-button aria-label="Clear" (click)="dateInput = ''; datepickerInput=''"
               tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
@@ -153,7 +153,7 @@
           <mat-form-field class="form-field">
             <textarea matInput name="otherInput" [(ngModel)]="otherInput"
             maxlength="200" placeholder="Övrig information" matTextareaAutosize
-              matAutosizeMaxRows="5">
+              matAutosizeMaxRows="10">
             </textarea>
             <button mat-button class="size-medium textarea-button" *ngIf="otherInput"
             matSuffix mat-icon-button aria-label="Clear"
