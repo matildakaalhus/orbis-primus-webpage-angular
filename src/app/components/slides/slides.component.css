@@ -1,8 +1,9 @@
 .slideshowcontainer {
     max-width: 100%;
     position: relative;
+    text-align: center;
+    vertical-align: middle;
     top: 0px;
-    margin-bottom:-4px;
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer */
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
@@ -10,110 +11,130 @@
 }
 
 .slideshowslide {
-    display: none;
-    position:relative;
-    z-index:0;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.0s;
+    -webkit-animation-duration: 0.5s;
     animation-name: fade;
-    animation-duration: 1.0s;
+    animation-duration: 0.5s;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    text-align: center;
+    vertical-align: middle;
+    top: 45%;
+    min-height: 35px;
     width: auto;
-    margin-top: -22px;
-    padding: 20px;
-    color: white;
+    min-width: 35px;
+    padding: 2%;
+    color: white !important;
+    background-color: rgba(168, 168, 168, 0.5);
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    opacity: 0.7;
+}
+
+.prev a {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .prev {
     left: 0;
-    border-radius: 0 200px 200px 0;
+    border-radius: 0 95% 95% 0;
 }
 
 .next {
     right: 0;
-    border-radius: 200px 0 0 200px;
+    border-radius: 95% 0 0 95%;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(71,71,71,0.5);
+    background-color: rgba(255, 255, 255, 0.479);
 }
 
-/* Play/Pause buttons in slideshow */
+/* Play/Pause buttons */
 .slideshowButton {
-    cursor:pointer;
-    margin-right:10px;
-    margin-top:10px;
-    border:0;
-    background:rgba(0,0,0,0);
-    position:absolute;
-    right:0;
-    top:0;
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    background: rgba(0,0,0,0);
+    opacity: 0.35;
+    margin-right: 1%;
+    margin-top: 1%;
+    border: 0;
+    right: 0;
+    top: 0;
+}
+
+.slideshowButton:hover {
+    opacity: 0.85   ;
 }
 
 button[name="playButton"] {
-    display:none;
-    width:46px;
-    height:46px;
-    background:url(/assets/playButton.png) center no-repeat;
-    background-size:46px;
+    width: 10%;
+    max-width:  65px;
+    height: 30%;
+    max-height:  65px;
+    background: url(/assets/playButton.png) center no-repeat;
+    background-size: 100%;
+    opacity:  0.7;
 }
 
 button[name="pauseButton"] {
-    width:45px;
-    height:45px;
-    background:url(/assets/pauseButton.png) center no-repeat;
-    background-size:45px;
+    width: 10%;
+    max-width:  65px;
+    height: 30%;
+    max-height: 65px;
+    background: url(/assets/pauseButton.png) center no-repeat;
+    background-size: 100%;
+    opacity: 0.7;
 }
 
-/* Dots in slideshow */
 .dots {
-    position:absolute;
+    position: absolute;
     bottom: 0;
-    left:0;
-    margin-left:50%;
+    left: 0;
+    margin-left: 50%;
     transform: translate(-50%);
-    display:block;
-    margin-bottom:10px;
-    border: -10px !important;
-    z-index:1;
+    display: block;
+    margin-bottom: 0.5%;
+    z-index: 1;
 }
 
 .dot {
-    cursor:pointer;
+    cursor: pointer;
     height: 15px;
     width: 15px;
     margin: 0 3px;
-    background-color: #717171;
+    background-color: rgba(102, 102, 102, 0.7);
     border-radius: 50%;
-    position:relative;
+    position: relative;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .dot:not(.visible):hover {
-    background-color: rgba(45,47,47,0.7);
+    background-color: rgba(61, 61, 61, 0.7);
 }
 
 .visible {
-    background-color: rgba(221,00,00,0.7);
+    background-color: rgba(196, 2, 2, 0.7);
 }
 
 /* Fading animation */
 @-webkit-keyframes fade {
-    from {opacity: .4}
+    from {opacity: .7}
     to {opacity: 1}
 }
 
 @keyframes fade {
-    from {opacity: .4}
+    from {opacity: .7}
     to {opacity: 1}
 }

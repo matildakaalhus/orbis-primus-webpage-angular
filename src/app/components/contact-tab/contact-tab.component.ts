@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { FormControl, Validators, NgForm } from '@angular/forms';
 import {Http, Headers} from '@angular/http';
-import { UtilitiesService } from '../../services/utilities.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-contact-tab',
@@ -21,7 +21,9 @@ export class ContactTabComponent implements OnInit {
   nameContactPersonControl = new FormControl('', Validators.required);
   emailContactPersonControl = new FormControl('', Validators.required);
 
-  constructor(private utilitiesService: UtilitiesService, private http: Http) { }
+  @ViewChild('contactForm') contactForm: NgForm;
+
+  constructor(private http: Http, private modalService: ModalService) { }
 
   ngOnInit() {
   }
@@ -31,11 +33,26 @@ export class ContactTabComponent implements OnInit {
       const headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
+      let success;
       return this.http.post('http://orbisprimus.se/ContactMailHandler.php',
       `question=${ this.questionInput }&contactName=${ this.nameContactPersonInput }
       &contactEmail=${ this.emailContactPersonInput }`,
         { headers: headers })
-      .subscribe(res => console.log(res));
+      .subscribe(result => {
+        console.log(result['_body']);
+        const resStr = String(result['_body']);
+        success = resStr === 'SUCCESS' || resStr ===
+        'ERROR: Contact email was sent but not the confirmation email to sender.';
+        if (success) {
+          this.resetForm();
+        }
+      },
+      error => {
+        this.modalService.show(false);
+      },
+      () => {
+        this.modalService.show(success);
+      });
     }
   }
 
@@ -69,5 +86,12 @@ export class ContactTabComponent implements OnInit {
       this.isValidNameContactPerson() &&
       this.isValidEmailContactPerson()
     );
+  }
+
+  resetForm() {
+    this.questionControl.reset();
+    this.nameContactPersonControl.reset();
+    this.emailContactPersonControl.reset();
+    this.contactForm.resetForm();
   }
 }

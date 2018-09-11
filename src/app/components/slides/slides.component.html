@@ -1,34 +1,34 @@
-<div id = "slideshowcontainer" class = "slideshowcontainer">
-  <div class = "slideshowslide fade">
-      <img src = "/assets/Slideimg1.jpg" style="width:100%">
-      <div class = "dots">
-          <span class = "dot"></span>
-          <span class = "dot" (click) = "setSlide(2)"></span>
-          <span class = "dot" (click) = "setSlide(3)"></span>
+<div id="slideshowcontainer" class="slideshowcontainer">
+  <div *ngIf="visibleSlide === 1" class="slideshowslide">
+      <img [src]="SLIDE1.src" style="width:100%">
+      <div class="dots">
+          <span class="dot visible"></span>
+          <span class="dot" (click)="setSlide(2)"></span>
+          <span class="dot" (click)="setSlide(3)"></span>
       </div>
   </div>
 
-  <div class = "slideshowslide fade">
-      <img src = "/assets/Slideimg2.jpg" style="width:100%">
-      <div class = "dots">
-          <span class = "dot" (click) = "setSlide(1)"></span>
-          <span class = "dot"></span>
-          <span class = "dot" (click) = "setSlide(3)"></span>
+  <div *ngIf="visibleSlide === 2" class="slideshowslide">
+      <img [src]="SLIDE2.src" style="width:100%">
+      <div class="dots">
+          <span class="dot" (click)="setSlide(1)"></span>
+          <span class="dot visible"></span>
+          <span class="dot" (click)="setSlide(3)"></span>
       </div>
   </div>
 
-  <div class = "slideshowslide fade">
-      <img src = "/assets/Slideimg3.jpg" style="width:100%">
-      <div class = "dots">
-          <span class = "dot" (click) = "this.setSlide(1)"></span>
-          <span class = "dot" (click) = "this.setSlide(2)"></span>
-          <span class = "dot"></span>
+  <div *ngIf="visibleSlide === 3" class="slideshowslide">
+      <img [src]="SLIDE3.src" style="width:100%">
+      <div class="dots">
+          <span class="dot" (click)="this.setSlide(1)"></span>
+          <span class="dot" (click)="this.setSlide(2)"></span>
+          <span class="dot visible"></span>
       </div>
   </div>
-  <a class = "prev" (click) = "this.changeSlide(-1)">&#10094;</a>
-  <a class = "next" (click) = "this.changeSlide(1)">&#10095;</a>
-  <button class = "slideshowButton" name = "pauseButton" id = "pauseButton"
-  (click) = "this.pauseSlides()"></button>
-  <button class = "slideshowButton" name = "playButton" id = "playButton"
-  (click) = "this.playSlides()"></button>
+  <a class="prev" (click)="this.changeSlide(-1)">&#10094;</a>
+  <a class="next" (click)="this.changeSlide(1)">&#10095;</a>
+  <button *ngIf="!isPaused" class="slideshowButton" name="pauseButton" id="pauseButton"
+  (click)="this.pauseSlides()"></button>
+  <button *ngIf="isPaused" class="slideshowButton" name="playButton" id="playButton"
+  (click)="this.playSlides()"></button>
 </div>

@@ -8,13 +8,23 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class SlidesComponent implements OnInit, OnDestroy {
 
   slideTimer;
-  slideIndex = 0;
+  visibleSlide = 0;
   changeSlideInterval = 3000;
-  automaticSlideshow = true;
+  isPaused = false;
+
+  SLIDE1;
+  SLIDE2;
+  SLIDE3;
 
   constructor() { }
 
   ngOnInit() {
+    this.SLIDE1 = new Image();
+    this.SLIDE1.src = './assets/Slideimg1.jpg';
+    this.SLIDE2 = new Image();
+    this.SLIDE2.src = './assets/Slideimg2.jpg';
+    this.SLIDE3 = new Image();
+    this.SLIDE3.src = './assets/Slideimg3.jpg';
     this.runSlides();
   }
 
@@ -24,7 +34,7 @@ export class SlidesComponent implements OnInit, OnDestroy {
 
   /* Automatic slideshow */
   runSlides() {
-    this.showSlide(this.slideIndex += 1);
+    this.visibleSlide === 3 ? this.showSlide(this.visibleSlide = 1) : this.showSlide(this.visibleSlide += 1);
     this.restartSlideTimer();
   }
 
@@ -40,27 +50,30 @@ export class SlidesComponent implements OnInit, OnDestroy {
   /* Pause automatic slideshow */
   pauseSlides() {
     clearTimeout(this.slideTimer);
-
-    const pauseButton = document.getElementById('pauseButton');
-    pauseButton.setAttribute('style', 'display:none;');
-    const playButton = document.getElementById('playButton');
-    playButton.setAttribute('style', 'display:block;');
+    this.isPaused = true;
   }
 
   /* Play automatic slideshow */
   playSlides() {
+    this.isPaused = false;
     this.restartSlideTimer();
-
-    const playButton = document.getElementById('playButton');
-    playButton.setAttribute('style', 'display:none;');
-    const pauseButton = document.getElementById('pauseButton');
-    pauseButton.setAttribute('style', 'display:block;');
   }
 
   /* Change to a slide relative to current by n */
   changeSlide(n) {
-    this.showSlide(this.slideIndex += n);
-    this.restartSlideTimer();
+    let steps = n;
+    while (steps > 0) {
+      this.visibleSlide === 3 ? this.visibleSlide = 1 : this.visibleSlide++;
+      steps--;
+    }
+    while (steps < 0) {
+      this.visibleSlide === 1 ? this.visibleSlide = 3 : this.visibleSlide--;
+      steps++;
+    }
+    this.showSlide(this.visibleSlide);
+    if (!this.isPaused) {
+      this.restartSlideTimer();
+    }
   }
 
   /**
@@ -68,45 +81,12 @@ export class SlidesComponent implements OnInit, OnDestroy {
    */
   setSlide(n) {
     this.showSlide(n);
-    this.restartSlideTimer();
+    if (!this.isPaused) {
+      this.restartSlideTimer();
+    }
   }
 
-  /**
-   *  Show slide n. Will hide all slides and dots,
-   * then display the right one for slide n.
-   */
-  showSlide(n) {
-    this.slideIndex = n;
-
-    let i;
-    const slides = document.getElementsByClassName('slideshowslide');
-    const dots = document.getElementsByClassName('dot');
-    const slide_dots = [];
-
-    /* Get dots for slide n */
-    for (i = 0; i < dots.length; i += slides.length + 1) {
-        slide_dots.push(dots[i]);
-    }
-    /* If trying to go right from last slide, go to first slide */
-    if (n > slides.length) {
-        this.slideIndex = 1;
-    }
-    /* If trying to go left from first slide, go to last slide */
-    if (n < 1) {
-        this.slideIndex = slides.length;
-    }
-    /* Hide all slides */
-    for (i = 0; i < slides.length; i++) {
-        slides[i].setAttribute('style', 'display:none;');
-    }
-    /* Hide all dots */
-    for (i = 0; i < slide_dots.length; i++) {
-        slide_dots[i].className = slide_dots[i].className.replace(' visible', '');
-    }
-    /* Display current slide */
-    slides[this.slideIndex - 1].setAttribute('style', 'display:inline-block;');
-    /* Display correct dot */
-    slide_dots[this.slideIndex - 1].className += ' visible';
+  showSlide(slide) {
+    this.visibleSlide = slide;
   }
-
 }

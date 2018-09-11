@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { FormControl, Validators, NgForm } from '@angular/forms';
 import {Http, Headers} from '@angular/http';
 import { UtilitiesService } from '../../services/utilities.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-booking-tab',
@@ -29,7 +30,9 @@ export class BookingTabComponent implements OnInit {
   dateControl = new FormControl('', Validators.required);
   datePickerControl = new FormControl();
 
-  constructor(private utilitiesService: UtilitiesService, private http: Http) { }
+  @ViewChild('bookingForm') bookingForm: NgForm;
+
+  constructor(private utilitiesService: UtilitiesService, private http: Http, private modalService: ModalService) { }
 
   ngOnInit() {
   }
@@ -39,11 +42,26 @@ export class BookingTabComponent implements OnInit {
       const headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
+      let success;
       return this.http.post('http://orbisprimus.se/BookingMailHandler.php',
       `eventDescription=${ this.eventDescriptionInput }&location=${ this.locationInput }&eventDate=${ this.dateInput }
       &contactName=${ this.nameContactPersonInput }&contactEmail=${ this.emailContactPersonInput }&otherInfo=${ this.otherInput }`,
         { headers: headers })
-      .subscribe(res => console.log(res));
+        .subscribe(result => {
+          console.log(result['_body']);
+          const resStr = String(result['_body']);
+          success = resStr === 'SUCCESS' || resStr ===
+          'ERROR: Booking request email was sent but not the confirmation email to sender.';
+          if (success) {
+            this.resetForm();
+          }
+        },
+        error => {
+          this.modalService.show(false);
+        },
+        () => {
+          this.modalService.show(success);
+        });
     }
   }
 
@@ -111,5 +129,16 @@ export class BookingTabComponent implements OnInit {
       this.isValidNameContactPerson() &&
       this.isValidEmailContactPerson()
     );
+  }
+
+  resetForm() {
+    this.eventDescriptionControl.reset();
+    this.locationControl.reset();
+    this.nameContactPersonControl.reset();
+    this.emailContactPersonControl.reset();
+    this.otherControl.reset();
+    this.dateControl.reset();
+    this.datePickerControl.reset();
+    this.bookingForm.resetForm();
   }
 }

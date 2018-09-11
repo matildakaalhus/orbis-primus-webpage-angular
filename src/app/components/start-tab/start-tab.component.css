@@ -1,12 +1,9 @@
-.start-page-post {
-    margin-bottom: 30px;
-}
-
 .start-page-post h5 {
     text-align:center;
     color: rgb(158, 71, 71);
-    margin-left:30%;
-    margin-right:30%;
-    margin-bottom:20px;
-    /* font-family:"Palantinos", Verdana, sans-serif; */
+    font-size: 16px;
+    width: 80%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom: 20px;
 }

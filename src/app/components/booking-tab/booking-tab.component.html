@@ -4,6 +4,7 @@
   <p>
     Vad roligt! Fyll i formuläret så svarar vi om vi kan så fort vi kan, eller vi svarar ju i vilket fall såklart.
   </p>
+  <br/>
   <mat-card>
     <form #bookingForm="ngForm" (ngSubmit)="onSubmit()" class="form">
       <!-- Event description -->
@@ -153,7 +154,7 @@
           <mat-form-field class="form-field">
             <textarea matInput name="otherInput" [(ngModel)]="otherInput"
             maxlength="200" placeholder="Övrig information" matTextareaAutosize
-              matAutosizeMaxRows="10">
+              matAutosizeMaxRows="10" [formControl]="otherControl">
             </textarea>
             <button mat-button class="size-medium textarea-button" *ngIf="otherInput"
             matSuffix mat-icon-button aria-label="Clear"
@@ -163,7 +164,6 @@
           </mat-form-field>
         </div>
       </div>
-
       <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka förfrågan!</button>
     </form>
   </mat-card>

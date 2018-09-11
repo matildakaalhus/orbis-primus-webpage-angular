@@ -18,21 +18,28 @@ html, body {
 /* Form CSS */
 .form {
     display: inline;
-    min-width: 350px;
 } 
 
 .form-field {
     margin-top: 13px !important;
-    min-width: 440px;
     width: 80% !important;
     color:rgb(104, 9, 9);
     font-family:"Palantinos", Verdana, sans-serif;
 }
 
 .mat-card {
-    min-width: 500px;
-    width: 40% !important;
+    width: 80% !important;
+    max-width: 700px !important;
     display: inline-block !important;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.tab-content .mat-card p, .tab-content .mat-card h3 {
+    text-align: center;
+    width: 90% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
 }
 
 .mat-form-field-underline {

@@ -1,58 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SlidesComponent } from './components/slides/slides.component';
 import { TabContentComponent } from './components/tab-content/tab-content.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-  MatAutocompleteModule,
-  MatBadgeModule,
-  MatBottomSheetModule,
   MatButtonModule,
-  MatButtonToggleModule,
   MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
   MatDatepickerModule,
-  MatDialogModule,
-  MatDividerModule,
-  MatExpansionModule,
-  MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
-  MatMenuModule,
   MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatStepperModule,
-  MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule,
-  MatTreeModule,
   MatFormFieldModule,
-  MatIcon,
 } from '@angular/material';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StartTabComponent } from './components/start-tab/start-tab.component';
 import { BookingTabComponent } from './components/booking-tab/booking-tab.component';
 import { ContactTabComponent } from './components/contact-tab/contact-tab.component';
 import { AboutTabComponent } from './components/about-tab/about-tab.component';
 import { DateValidatorDirective } from './directives/date.directive';
-import { Http, ConnectionBackend, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { ModalService } from 'src/app/services/modal.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +38,11 @@ import { Http, ConnectionBackend, HttpModule } from '@angular/http';
     ContactTabComponent,
     AboutTabComponent,
     DateValidatorDirective,
+    ConfirmModalComponent,
+    FooterComponent,
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
     MatToolbarModule,
     MatInputModule,
@@ -83,7 +60,8 @@ import { Http, ConnectionBackend, HttpModule } from '@angular/http';
     HttpModule,
     MatCardModule
   ],
-  providers: [],
+  schemas: [ NO_ERRORS_SCHEMA ],
+  providers: [ ModalService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@
   <p>
     Här kan du ställa frågor till oss!
   </p>
+  <br/>
   <mat-card>
     <form #contactForm="ngForm" (ngSubmit)="onSubmit()" class="form">
       <!-- Question -->
@@ -12,8 +13,8 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <textarea matInput name="questionInput" [(ngModel)]="questionInput"
-            maxlength="200" placeholder="Fråga" matTextareaAutosize
-              matAutosizeMaxRows="10" required></textarea>
+            maxlength="200" placeholder="Fråga"  [formControl]="questionControl"
+            matTextareaAutosize matAutosizeMaxRows="10" required></textarea>
             <!--Check and clear-->
             <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
               <mat-icon [style.color]="'green'" *ngIf="isValidQuestion()">done</mat-icon>
@@ -78,7 +79,8 @@
           </mat-form-field>
         </div>
       </div>
-      <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka förfrågan!</button>
+      <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka fråga!</button>
     </form>
   </mat-card>
 </div>
+
