@@ -12,3 +12,11 @@ If you want to preview the webpage on another device:
 $ ifconfig
 (The IP address is probably something like 192.168.XX.XXX)
 - Enter that IP and port 4200 into the browser on the device (192.168.XX.XXX:4200)
+
+To build the project:
+- Enter the following into the terminal:
+$ ng build --prod
+- Navigate to www.one.com, log in and go to the control panel and select the orbisprimus.se domain
+- Go to the file handler and first put the old files in the folder called old (empty it first).
+  Then put the generated files from dist/orbis-primus-webpage directly in the file handler. 
+
