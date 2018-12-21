@@ -15,16 +15,31 @@ export class SlidesComponent implements OnInit, OnDestroy {
   SLIDE1;
   SLIDE2;
   SLIDE3;
+  SLIDE4;
+  SLIDE5;
+  SLIDE6;
+  SLIDE7;
+  SLIDE8;
 
   constructor() { }
 
   ngOnInit() {
     this.SLIDE1 = new Image();
-    this.SLIDE1.src = './assets/Slideimg1.jpg';
+    this.SLIDE1.src = './assets/SlideImage1.jpg';
     this.SLIDE2 = new Image();
-    this.SLIDE2.src = './assets/Slideimg2.jpg';
+    this.SLIDE2.src = './assets/SlideImage2.jpg';
     this.SLIDE3 = new Image();
-    this.SLIDE3.src = './assets/Slideimg3.jpg';
+    this.SLIDE3.src = './assets/SlideImage3.jpg';
+    this.SLIDE4 = new Image();
+    this.SLIDE4.src = './assets/SlideImage4.jpg';
+    this.SLIDE5 = new Image();
+    this.SLIDE5.src = './assets/SlideImage5.jpg';
+    this.SLIDE6 = new Image();
+    this.SLIDE6.src = './assets/SlideImage6.jpg';
+    this.SLIDE7 = new Image();
+    this.SLIDE7.src = './assets/SlideImage7.jpg';
+    this.SLIDE8 = new Image();
+    this.SLIDE8.src = './assets/SlideImage8.jpg';
     this.runSlides();
   }
 
@@ -34,7 +49,7 @@ export class SlidesComponent implements OnInit, OnDestroy {
 
   /* Automatic slideshow */
   runSlides() {
-    this.visibleSlide === 3 ? this.showSlide(this.visibleSlide = 1) : this.showSlide(this.visibleSlide += 1);
+    this.visibleSlide === 8 ? this.showSlide(this.visibleSlide = 1) : this.showSlide(this.visibleSlide += 1);
     this.restartSlideTimer();
   }
 
@@ -63,11 +78,11 @@ export class SlidesComponent implements OnInit, OnDestroy {
   changeSlide(n) {
     let steps = n;
     while (steps > 0) {
-      this.visibleSlide === 3 ? this.visibleSlide = 1 : this.visibleSlide++;
+      this.visibleSlide === 8 ? this.visibleSlide = 1 : this.visibleSlide++;
       steps--;
     }
     while (steps < 0) {
-      this.visibleSlide === 1 ? this.visibleSlide = 3 : this.visibleSlide--;
+      this.visibleSlide === 1 ? this.visibleSlide = 8 : this.visibleSlide--;
       steps++;
     }
     this.showSlide(this.visibleSlide);

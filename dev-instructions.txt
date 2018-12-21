@@ -1,0 +1,14 @@
+To host locally (Linux):
+- Enter the following in the terminal
+$ cd /location/of/repository
+$ sudo ng serve --host=0.0.0.0
+
+- Open your browser and enter localhost:4200 in the URL field
+
+If you want to preview the webpage on another device:
+- Turn on mobile tethering on that device
+- Connect your computer to that network
+- Check the IP address of your computer by entering the following in the terminal:
+$ ifconfig
+(The IP address is probably something like 192.168.XX.XXX)
+- Enter that IP and port 4200 into the browser on the device (192.168.XX.XXX:4200)
