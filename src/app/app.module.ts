@@ -27,6 +27,7 @@ import { HttpModule } from '@angular/http';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { ModalService } from 'src/app/services/modal.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ApplyTabComponent } from './components/apply-tab/apply-tab.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component';
     DateValidatorDirective,
     ConfirmModalComponent,
     FooterComponent,
+    ApplyTabComponent,
   ],
   imports: [
     MDBBootstrapModule.forRoot(),

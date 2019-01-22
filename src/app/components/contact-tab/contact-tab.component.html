@@ -16,7 +16,8 @@
             maxlength="200" placeholder="Fråga"  [formControl]="questionControl"
             matTextareaAutosize matAutosizeMaxRows="10" required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true"
+            *ngIf="isValidQuestion()">
               <mat-icon [style.color]="'green'" *ngIf="isValidQuestion()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="questionInput" matSuffix
@@ -39,7 +40,8 @@
             placeholder="Ditt namn" [formControl]="nameContactPersonControl"
               required>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true"
+            *ngIf="isValidNameContactPerson()">
               <mat-icon [style.color]="'green'" *ngIf="isValidNameContactPerson()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="nameContactPersonInput" matSuffix
@@ -64,7 +66,8 @@
             placeholder="Din e-postadress" [formControl]="emailContactPersonControl"
               required>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
+            <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true"
+            *ngIf="isValidEmailContactPerson()">
               <mat-icon [style.color]="'green'" *ngIf="isValidEmailContactPerson()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="emailContactPersonInput" matSuffix

@@ -18,13 +18,27 @@ html, body {
 /* Form CSS */
 .form {
     display: inline;
+    vertical-align: center !important;
 } 
 
-.form-field {
-    margin-top: 13px !important;
+.form p {
+    max-width: 550px !important;
+    margin-bottom: 0px !important;
+    margin-top: 15px !important;
+}
+
+.form-field, form p {
     width: 80% !important;
     color:rgb(104, 9, 9);
     font-family:"Palantinos", Verdana, sans-serif;
+}
+
+.form-field {
+    margin-top: 15px !important;
+}
+
+.form-field.question-above {
+    margin-top: 0px !important;
 }
 
 .mat-card {
@@ -62,6 +76,7 @@ html, body {
 .mat-form-field-label {
     padding-top: 4px;
     font-size: 15px !important;
+    white-space: initial;
 }
 
 .mat-form-field-label, .mat-form-field-required-marker {
