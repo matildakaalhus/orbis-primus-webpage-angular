@@ -80,7 +80,7 @@ class MailHandler {
     }
 
     private static function BuildConfirmationMessage() {
-        $responseMessage = "Detta är en autogenerad bekräftelse på att er fråga till oss i Orbis Primus har skickats."
+        $responseMessage = "Detta är en autogenererad bekräftelse på att er fråga till oss i Orbis Primus har skickats."
         . MailHandler::NEWLINE . "Tack för er fråga, vi återkommer med ett svar så fort vi kan!";
 
         return $responseMessage . MailHandler::NEWLINE
