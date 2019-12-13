@@ -58,7 +58,7 @@ class MailHandler {
         . "-----------------------------" . MailHandler::NEWLINE
         . "Evenemangsbeskrivning: " . MailHandler::$eventDescription . MailHandler::NEWLINE
         . "Plats: " . MailHandler::$location . MailHandler::NEWLINE
-        . "Datum: " . MailHandler::$eventDate
+        . "Datum: " . MailHandler::$eventDate . MailHandler::NEWLINE
         . "Namn kontaktperson: " . MailHandler::$contactName . MailHandler::NEWLINE
         . "E-postadress kontaktperson: " . MailHandler::$contactEmail . MailHandler::NEWLINE
         . "Övrig information: " . MailHandler::$otherInfo . MailHandler::NEWLINE
