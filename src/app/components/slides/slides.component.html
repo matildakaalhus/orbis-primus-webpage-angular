@@ -1,116 +1,24 @@
 <div id="slideshowcontainer" class="slideshowcontainer">
-    <ng-container *ngIf="visibleSlide === 1" class="slideshowslide">
-        <img [src]="SLIDE1.src" style="width:100%">
-        <div class="dots">
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
+    <div id="slideshowslide">
+        <img #slideImage1/>
+        <img #slideImage2/>
+        <img #slideImage3/>
+        <img #slideImage4/>
+        <img #slideImage5/>
+        <img #slideImage6/>
+        <img #slideImage7/>
+        <img #slideImage8/>
+        <div #dots id="dots">
+            <span #dot1 class="dot visible-slide" (click)="setSlide(1)"></span>
+            <span #dot2 class="dot" (click)="setSlide(2)"></span>
+            <span #dot3 class="dot" (click)="setSlide(3)"></span>
+            <span #dot4 class="dot" (click)="setSlide(4)"></span>
+            <span #dot5 class="dot" (click)="setSlide(5)"></span>
+            <span #dot6 class="dot" (click)="setSlide(6)"></span>
+            <span #dot7 class="dot" (click)="setSlide(7)"></span>
+            <span #dot8 class="dot" (click)="setSlide(8)"></span>
         </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 2" class="slideshowslide">
-        <img [src]="SLIDE2.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="setSlide(1)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 3" class="slideshowslide">
-        <img [src]="SLIDE3.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 4" class="slideshowslide">
-        <img [src]="SLIDE4.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 5" class="slideshowslide">
-        <img [src]="SLIDE5.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 6" class="slideshowslide">
-        <img [src]="SLIDE6.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 7" class="slideshowslide">
-        <img [src]="SLIDE7.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot visible"></span>
-            <span class="dot" (click)="setSlide(8)"></span>
-        </div>
-    </ng-container>
-
-    <ng-container *ngIf="visibleSlide === 8" class="slideshowslide">
-        <img [src]="SLIDE8.src" style="width:100%">
-        <div class="dots">
-            <span class="dot" (click)="this.setSlide(1)"></span>
-            <span class="dot" (click)="this.setSlide(2)"></span>
-            <span class="dot" (click)="setSlide(3)"></span>
-            <span class="dot" (click)="setSlide(4)"></span>
-            <span class="dot" (click)="setSlide(5)"></span>
-            <span class="dot" (click)="setSlide(6)"></span>
-            <span class="dot" (click)="setSlide(7)"></span>
-            <span class="dot visible"></span>
-        </div>
-    </ng-container>
-
+    </div>
     <a class="prev" (click)="this.changeSlide(-1)">&#10094;</a>
     <a class="next" (click)="this.changeSlide(1)">&#10095;</a>
     <button *ngIf="!isPaused" class="slideshowButton" name="pauseButton" id="pauseButton"

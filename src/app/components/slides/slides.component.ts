@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-slides',
@@ -6,40 +6,38 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./slides.component.css']
 })
 export class SlidesComponent implements OnInit, OnDestroy {
+  @ViewChild('slideimg') slideimg: ElementRef;
+  @ViewChild('dot1') dot1: ElementRef;
+  @ViewChild('dot2') dot2: ElementRef;
+  @ViewChild('dot3') dot3: ElementRef;
+  @ViewChild('dot4') dot4: ElementRef;
+  @ViewChild('dot5') dot5: ElementRef;
+  @ViewChild('dot6') dot6: ElementRef;
+  @ViewChild('dot7') dot7: ElementRef;
+  @ViewChild('dot8') dot8: ElementRef;
+  @ViewChild('slideImage1') slideImage1: ElementRef;
+  @ViewChild('slideImage2') slideImage2: ElementRef;
+  @ViewChild('slideImage3') slideImage3: ElementRef;
+  @ViewChild('slideImage4') slideImage4: ElementRef;
+  @ViewChild('slideImage5') slideImage5: ElementRef;
+  @ViewChild('slideImage6') slideImage6: ElementRef;
+  @ViewChild('slideImage7') slideImage7: ElementRef;
+  @ViewChild('slideImage8') slideImage8: ElementRef;
 
-  slideTimer;
+  slideTimer = null;
   visibleSlide = 0;
   changeSlideInterval = 3000;
   isPaused = false;
+  numSlides = 8;
 
-  SLIDE1;
-  SLIDE2;
-  SLIDE3;
-  SLIDE4;
-  SLIDE5;
-  SLIDE6;
-  SLIDE7;
-  SLIDE8;
+  slidesList;
+  dotsList;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.SLIDE1 = new Image();
-    this.SLIDE1.src = './assets/SlideImage1.jpg';
-    this.SLIDE2 = new Image();
-    this.SLIDE2.src = './assets/SlideImage2.jpg';
-    this.SLIDE3 = new Image();
-    this.SLIDE3.src = './assets/SlideImage3.jpg';
-    this.SLIDE4 = new Image();
-    this.SLIDE4.src = './assets/SlideImage4.jpg';
-    this.SLIDE5 = new Image();
-    this.SLIDE5.src = './assets/SlideImage5.jpg';
-    this.SLIDE6 = new Image();
-    this.SLIDE6.src = './assets/SlideImage6.jpg';
-    this.SLIDE7 = new Image();
-    this.SLIDE7.src = './assets/SlideImage7.jpg';
-    this.SLIDE8 = new Image();
-    this.SLIDE8.src = './assets/SlideImage8.jpg';
+    this.initSlideImages();
+    this.initDots();
     this.runSlides();
   }
 
@@ -47,9 +45,44 @@ export class SlidesComponent implements OnInit, OnDestroy {
     clearTimeout(this.slideTimer);
   }
 
+  /**
+   * Create Image objects for each slide and push their src to a list
+   * for easy access when changing slides.
+   */
+  initSlideImages() {
+    this.slidesList = [];
+    this.slidesList.push(this.slideImage1);
+    this.slidesList.push(this.slideImage2);
+    this.slidesList.push(this.slideImage3);
+    this.slidesList.push(this.slideImage4);
+    this.slidesList.push(this.slideImage5);
+    this.slidesList.push(this.slideImage6);
+    this.slidesList.push(this.slideImage7);
+    this.slidesList.push(this.slideImage8);
+    for (let i = 0; i < this.numSlides; i++) {
+      this.slidesList[i].nativeElement.src = './assets/SlideImage' + String(i + 1) + '.jpg';
+    }
+  }
+
+  /**
+   * Put all dot elements in a list for easy access.
+   */
+  initDots() {
+    this.dotsList = [];
+    this.dotsList.push(this.dot1);
+    this.dotsList.push(this.dot2);
+    this.dotsList.push(this.dot3);
+    this.dotsList.push(this.dot4);
+    this.dotsList.push(this.dot5);
+    this.dotsList.push(this.dot6);
+    this.dotsList.push(this.dot7);
+    this.dotsList.push(this.dot8);
+  }
+
   /* Automatic slideshow */
   runSlides() {
-    this.visibleSlide === 8 ? this.showSlide(this.visibleSlide = 1) : this.showSlide(this.visibleSlide += 1);
+    this.visibleSlide === this.numSlides ? this.showSlide(1) :
+                                            this.showSlide(this.visibleSlide + 1);
     this.restartSlideTimer();
   }
 
@@ -77,15 +110,16 @@ export class SlidesComponent implements OnInit, OnDestroy {
   /* Change to a slide relative to current by n */
   changeSlide(n) {
     let steps = n;
+    let slide = this.visibleSlide;
     while (steps > 0) {
-      this.visibleSlide === 8 ? this.visibleSlide = 1 : this.visibleSlide++;
+      slide === this.numSlides ? slide = 1 : slide++;
       steps--;
     }
     while (steps < 0) {
-      this.visibleSlide === 1 ? this.visibleSlide = 8 : this.visibleSlide--;
+      slide === 1 ? slide = this.numSlides : slide--;
       steps++;
     }
-    this.showSlide(this.visibleSlide);
+    this.showSlide(slide);
     if (!this.isPaused) {
       this.restartSlideTimer();
     }
@@ -102,6 +136,19 @@ export class SlidesComponent implements OnInit, OnDestroy {
   }
 
   showSlide(slide) {
-    this.visibleSlide = slide;
+    if (this.visibleSlide !== slide) {
+      this.visibleSlide = slide;
+      // Hide all slides and then show only one
+      for (let i = 0; i < this.slidesList.length; i++) {
+        this.slidesList[i].nativeElement.classList.remove('visible-slide');
+      }
+      this.slidesList[slide - 1].nativeElement.classList.add('visible-slide');
+
+      // Set all dots to inactive and then set only one to active
+      for (let i = 0; i < this.dotsList.length; i++) {
+        this.dotsList[i].nativeElement.classList.remove('active-dot');
+      }
+      this.dotsList[slide - 1].nativeElement.classList.add('active-dot');
+    }
   }
 }
