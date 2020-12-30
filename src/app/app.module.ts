@@ -28,6 +28,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
 import { ModalService } from 'src/app/services/modal.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { ApplyTabComponent } from './components/apply-tab/apply-tab.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ApplyTabComponent } from './components/apply-tab/apply-tab.component';
     ConfirmModalComponent,
     FooterComponent,
     ApplyTabComponent,
+    HeaderComponent,
   ],
   imports: [
     MDBBootstrapModule.forRoot(),

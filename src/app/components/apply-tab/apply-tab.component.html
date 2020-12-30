@@ -1,9 +1,19 @@
 <div class="tab-content">
   <h2>Vill du vara med oss och gückla?</h2>
-  <br/>
-  <p>Grymt! Det går jättebra att vara med och prova på några rep innan du bestämmer dig.</p>
-  <p>Fyll i formuläret så hör vi av oss!</p>
-  <br/>
+  <br />
+  <p>
+    Gillar du att slå upp rim? Och räkna stavelser? Det gör vi med!
+  </p>
+  <p>
+    Om du är intresserad av Orbis Primus och vill komma på ett prova-på-rep
+    så är kan du skicka in en intresseanmälan nedan. Smidigt värre!
+  </p>
+
+  <p>
+    PS! Är det något du undrar kan du maila oss i fliken "Kontakta oss". Annars tar vi det när vi ses.
+  </p>
+
+  <br />
   <mat-card>
     <form #applyForm="ngForm" (ngSubmit)="onSubmit()" class="form">
       <!-- Name -->
@@ -12,16 +22,16 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <input matInput name="nameInput" [(ngModel)]="nameInput" maxlength="100"
-            placeholder="Namn" [formControl]="nameControl"
-              required>
+                   placeholder="Namn" [formControl]="nameControl"
+                   required>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidName()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidName()">
               <mat-icon [style.color]="'green'" *ngIf="isValidName()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="nameInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="nameInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="nameInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
@@ -38,16 +48,16 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <input matInput name="educationInput" [(ngModel)]="educationInput" maxlength="100"
-            placeholder="Program & årskurs" [formControl]="educationControl"
-              required>
+                   placeholder="Program & årskurs" [formControl]="educationControl"
+                   required>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidEducation()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidEducation()">
               <mat-icon [style.color]="'green'" *ngIf="isValidEducation()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="educationInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="educationInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="educationInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
@@ -64,16 +74,16 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <input matInput name="emailInput" [(ngModel)]="emailInput" maxlength="100"
-            placeholder="E-post" [formControl]="emailControl"
-              required>
+                   placeholder="E-post" [formControl]="emailControl"
+                   required>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidEmail()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidEmail()">
               <mat-icon [style.color]="'green'" *ngIf="isValidEmail()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="emailInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="emailInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="emailInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
@@ -91,17 +101,17 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="interestsInput" [(ngModel)]="interestsInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="interestsControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="interestsControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidInterests()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidInterests()">
               <mat-icon [style.color]="'green'" *ngIf="isValidInterests()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="interestsInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="interestsInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="interestsInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
@@ -119,22 +129,22 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="engagementsInput" [(ngModel)]="engagementsInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="engagementsControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="engagementsControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidEngagements()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidEngagements()">
               <mat-icon [style.color]="'green'" *ngIf="isValidEngagements()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="engagementsInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="engagementsInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="engagementsInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
             <mat-error *ngIf="engagementsControl.hasError('required')">
-              Inte? Mer av din tid till oss! 
+              Inte? Mer av din tid till oss!
             </mat-error>
           </mat-form-field>
         </div>
@@ -147,27 +157,27 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="experienceInput" [(ngModel)]="experienceInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="experienceControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="experienceControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidExperience()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidExperience()">
               <mat-icon [style.color]="'green'" *ngIf="isValidExperience()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="experienceInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="experienceInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="experienceInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
             <mat-error *ngIf="experienceControl.hasError('required')">
-              På skolavslutningen i 6an räknas. 
+              På skolavslutningen i 6an räknas.
             </mat-error>
           </mat-form-field>
         </div>
       </div>
-      
+
       <!-- Instruments -->
       <div class="row">
         <div class="col-12">
@@ -175,22 +185,22 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="instrumentsInput" [(ngModel)]="instrumentsInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="instrumentsControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="instrumentsControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidInstruments()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidInstruments()">
               <mat-icon [style.color]="'green'" *ngIf="isValidInstruments()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="instrumentsInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="instrumentsInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="instrumentsInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
             <mat-error *ngIf="instrumentsControl.hasError('required')">
-              Vi har alltid en öppning på kazoo! 
+              Vi har alltid en öppning på kazoo!
             </mat-error>
           </mat-form-field>
         </div>
@@ -203,22 +213,22 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="comfortableInput" [(ngModel)]="comfortableInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="comfortableControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="comfortableControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidComfortable()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidComfortable()">
               <mat-icon [style.color]="'green'" *ngIf="isValidComfortable()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="comfortableInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="comfortableInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="comfortableInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
             <mat-error *ngIf="comfortableControl.hasError('required')">
-              Lugn, folk kastar oftast inte tomater. 
+              Lugn, folk kastar oftast inte tomater.
             </mat-error>
           </mat-form-field>
         </div>
@@ -231,22 +241,22 @@
           <mat-form-field class="form-field question-above">
             <!--Input-->
             <textarea matInput name="rhymeInput" [(ngModel)]="rhymeInput"
-            maxlength="300" placeholder="Svar" 
-            matTextareaAutosize matAutosizeMaxRows="10" [formControl]="rhymeControl"
-            required></textarea>
+                      maxlength="300" placeholder="Svar"
+                      matTextareaAutosize matAutosizeMaxRows="10" [formControl]="rhymeControl"
+                      required></textarea>
             <!--Check and clear-->
-            <button mat-button class="size-medium" matSuffix mat-icon-button 
-                  [disabled]="true" *ngIf="isValidRhyme()">
+            <button mat-button class="size-medium" matSuffix mat-icon-button
+                    [disabled]="true" *ngIf="isValidRhyme()">
               <mat-icon [style.color]="'green'" *ngIf="isValidRhyme()">done</mat-icon>
             </button>
             <button mat-button class="size-medium" *ngIf="rhymeInput" matSuffix
-            mat-icon-button aria-label="Clear" (click)="rhymeInput = ''"
-              tabindex="-1">
+                    mat-icon-button aria-label="Clear" (click)="rhymeInput = ''"
+                    tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
             <!--Error-->
             <mat-error *ngIf="rhymeControl.hasError('required')">
-              Det här kan vara den viktigaste frågan i ditt liv. 
+              Det här kan vara den viktigaste frågan i ditt liv.
             </mat-error>
           </mat-form-field>
         </div>
@@ -258,19 +268,20 @@
           <p>Finns det något annat du vill berätta?</p>
           <mat-form-field class="form-field question-above">
             <textarea matInput name="otherInput" [(ngModel)]="otherInput"
-            maxlength="200" placeholder="Svar" matTextareaAutosize
-              matAutosizeMaxRows="10" [formControl]="otherControl">
+                      maxlength="200" placeholder="Svar" matTextareaAutosize
+                      matAutosizeMaxRows="10" [formControl]="otherControl">
             </textarea>
             <button mat-button class="size-medium textarea-button" *ngIf="otherInput"
-            matSuffix mat-icon-button aria-label="Clear"
-              (click)="otherInput = ''" tabindex="-1">
+                    matSuffix mat-icon-button aria-label="Clear"
+                    (click)="otherInput = ''" tabindex="-1">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
         </div>
       </div>
 
-      <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka ansökan!</button>
+      <button mat-raised-button type="submit" class="submit-button">Skicka ansökan!</button>
     </form>
   </mat-card>
+
 </div>

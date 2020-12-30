@@ -2,7 +2,8 @@
   <h2>Vill ni att vi ska komma och gückla för er?</h2>
   <br/>
   <p>
-    Vad roligt! Fyll i formuläret så svarar vi om vi kan så fort vi kan, eller vi svarar ju i vilket fall såklart.
+    Vad roligt! Fyll i formuläret så hörs vi snart. Är det några mer specifika frågor kan ni maila
+    bokningsansvarig vars kontaktuppgifter finns under fliken "Kontakta oss".
   </p>
   <br/>
   <mat-card>
@@ -104,7 +105,7 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <input matInput name="nameContactPersonInput" [(ngModel)]="nameContactPersonInput" maxlength="32"
-            placeholder="Namn kontaktperson" [formControl]="nameContactPersonControl"
+            placeholder="Kontaktperson namn" [formControl]="nameContactPersonControl"
               required>
             <!--Check and clear-->
             <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
@@ -129,7 +130,7 @@
           <mat-form-field class="form-field">
             <!--Input-->
             <input matInput name="emailContactPersonInput" [(ngModel)]="emailContactPersonInput" maxlength="32"
-            placeholder="E-postadress kontaktperson" [formControl]="emailContactPersonControl"
+            placeholder="Kontaktperson e-postadress" [formControl]="emailContactPersonControl"
               required>
             <!--Check and clear-->
             <button mat-button class="size-medium" matSuffix mat-icon-button [disabled]="true">
@@ -164,7 +165,7 @@
           </mat-form-field>
         </div>
       </div>
-      <button mat-raised-button color="warn" type="submit" class="submit-button">Skicka förfrågan!</button>
+      <button mat-raised-button type="submit" class="submit-button">Skicka förfrågan!</button>
     </form>
   </mat-card>
 </div>

@@ -1,0 +1,54 @@
+
+
+.contact-content {
+  position: relative;
+  font-family: 'Roboto';
+  font-weight: 300;
+  margin-bottom: 15px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+}
+
+  .contact-content a {
+    color: rgba(104, 9, 9, 0.5);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .contact-content img {
+    max-height: 40%;
+    max-width: 40%;
+    float: left;
+    border-radius: 50%;
+  }
+
+  .contact-content div {
+    width: 45%;
+    min-width: 450px;
+    height: 25%;
+    float: left;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+  }
+
+  .contact-content p {
+    color: rgb(104, 9, 9);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    max-width: 48%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .contact-content h3 {
+    margin-top: 5%;
+    color: rgb(104, 9, 9);
+    font-family: 'Goudy Bookletter 1911', serif;
+    text-align: center;
+    display: inline-block;
+  }

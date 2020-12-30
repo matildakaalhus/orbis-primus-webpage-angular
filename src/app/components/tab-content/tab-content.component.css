@@ -1,9 +1,9 @@
 .mat-tab-header {
-    background-color: rgba(105, 8, 8, 0.95);
-    position: sticky !important;
-    position: -webkit-sticky !important; /* For macOS/iOS Safari */
-    top: 0 !important; /* Sets the sticky toolbar to be on top */
-    z-index: 999 !important;
+  background-color: #5d1932; /*rgba(121, 30, 64, 1);*/
+  position: sticky !important;
+  position: -webkit-sticky !important; /* For macOS/iOS Safari */
+  top: 0 !important; /* Sets the sticky toolbar to be on top */
+  z-index: 999 !important;
 }
 
 .mat-tab-label {
@@ -12,7 +12,6 @@
 
 .mat-tab-label.mat-tab-label-active {
     font-weight: bold;
-    background-color: rgba(156, 33, 33, 0.95);
     color: white;
 }
 
@@ -25,16 +24,17 @@
 }
 
 .mat-tab-body-wrapper {
-    flex-grow: 1 !important;
-    background-image: url("/assets/pink_rice.png") !important;
-    background-repeat: repeat !important;
-    background-position: center !important;
+  flex-grow: 1 !important;
+  background-color: rgba(104, 9, 9, 0.1);
+  background-repeat: repeat !important;
+  background-position: center !important;
 }
 
+
 .mat-tab-group {
-    min-height: calc(100vh - 100px) !important;
-    display: flex !important;
-    flex-direction: column !important;
+  min-height: calc(100vh - 100px) !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .mat-tab-label-content {
@@ -44,14 +44,20 @@
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
+.mat-raised-button {
+  color: white;
+}
+
 .tab-content p {
-    color: rgb(104, 9, 9);
-    margin-bottom:15px;
-    width: 80%;
-    max-width: 900px;
-    margin-left:10%;
-    margin-right:10%;
-    display: inline-block;
+  color: rgb(104, 9, 9);
+  margin-bottom: 15px;
+  width: 40%;
+  min-width: 300px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: inline-block;
 }
 
 .tab-content hr {
@@ -66,15 +72,25 @@
 }
 
 .tab-content h2, .tab-content h3 {
-    text-align:center;
-    color:rgb(104, 9, 9);
-    width: 80%;
-    margin-left:10%;
-    margin-right:10%;
+  text-align: center;
+  color: rgb(104, 9, 9);
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: 'Goudy Bookletter 1911', serif;
 }
 
 .tab-content {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center !important;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center !important;
+  font-family: 'Roboto';
+  font-weight: 300;
 }
+
+
+  .tab-content a {
+    color: rgba(104, 9, 9, 0.7);
+    font-weight: bold;
+  }
+
