@@ -21,11 +21,11 @@
     max-width: 40%;
     float: left;
     border-radius: 50%;
+    vertical-align: middle;
   }
 
   .contact-content div {
     width: 45%;
-    min-width: 450px;
     height: 25%;
     float: left;
     margin-top: 2%;
@@ -52,3 +52,41 @@
     text-align: center;
     display: inline-block;
   }
+
+
+  @media only screen and (max-width: 768px) {
+    .contact-content {
+      margin-bottom: 10px;
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+
+    .contact-content div {
+      width: 90%;
+    }
+
+    .contact-content a {
+      color: rgba(104, 9, 9, 0.5);
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .contact-content {
+      line-height: 13px;
+    }
+
+    .contact-content h3 {
+      font-size: 20px;
+    }
+
+    .contact-content p {
+      font-size: 13px;
+    }
+
+    .contact-content a {
+      font-size: 12px;
+    }
+  }
+
