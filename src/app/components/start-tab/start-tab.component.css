@@ -10,3 +10,8 @@
   margin-right: 10%;
   margin-bottom: 20px;
 }
+
+.img_box img {
+  height: 400px;
+  object-fit: cover;
+}

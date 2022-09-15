@@ -5,6 +5,11 @@ $ sudo ng serve --host=0.0.0.0
 
 - Open your browser and enter localhost:4200 in the URL field
 
+To host locally (Windows):
+- Enter the following in the PowerShell
+$ cd /location/of/repository
+$ ng serve --o
+
 If you want to preview the webpage on another device:
 - Turn on mobile tethering on that device
 - Connect your computer to that network
@@ -13,10 +18,16 @@ $ ifconfig
 (The IP address is probably something like 192.168.XX.XXX)
 - Enter that IP and port 4200 into the browser on the device (192.168.XX.XXX:4200)
 
+Alternatively, most browsers have the option of viewing in different resolutions. 
+F12 in Chrome opens 'Developer mode' and the top left corner has a 'Toggle device 
+toolbar' to view in common non-desktop resolutions.
+
 To build the project:
 - Enter the following into the terminal:
 $ ng build --prod
-- Navigate to www.one.com, log in and go to the control panel and select the orbisprimus.se domain
-- Go to the file handler and first put the old files in the folder called old (empty it first).
-  Then put the generated files from dist/orbis-primus-webpage directly in the file handler. 
+- Navigate to www.one.com, log in to the web page handler. Go to the control panel from the drop down menu.
+- Go to the file handler (Filer och sakerhet). Empty the folder called 'old' and move the current files into it. 
+Move the newly generated files from dist/orbis-primus-webpage into the root map. Check if the .php files are included 
+in the root, otherwise they have to be copied from the 'old' map and moved into root so the emailing etc. works. Check 
+the webpage at orbisprimus.se, test the booking handler by sending a junk booking.
 
